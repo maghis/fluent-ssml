@@ -1,0 +1,56 @@
+{
+    "name": "fluent-ssml",
+    "version": "0.1.0",
+    "description": "Fluent Alexa SSML builder",
+    "author": "maghis",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maghis/fluent-ssml.git"
+    },
+    "main": "lib/index.js",
+    "files": [
+        "./lib/"
+    ],
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "clean": "rm -rf lib",
+        "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+        "build": "npm run clean && npm run lint && tsc",
+        "build:tests": "rm -rf test/build && tsc -p test/",
+        "test": "npm run build:tests && nyc ava --verbose test/build/test",
+        "start": "npm run build && node lib/index.js",
+        "prepublishOnly": "npm run build"
+    },
+    "devDependencies": {
+        "@types/xmlbuilder": "0.0.30",
+        "ava": "0.21.0",
+        "babel-register": "6.24.1",
+        "nyc": "11.1.0",
+        "tslint": "5.5.0",
+        "typescript": "2.4.2"
+    },
+    "dependencies": {
+        "xmlbuilder": "9.0.1"
+    },
+    "nyc": {
+        "include": [
+            "test/**"
+        ],
+        "exclude": [
+            "test/build/test/**"
+        ],
+        "reporter": [
+            "json",
+            "text",
+            "lcovonly"
+        ],
+        "require": [
+            "babel-register"
+        ],
+        "produce-source-map": true,
+        "all": true
+    }
+}

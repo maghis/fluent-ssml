@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSourceMap": true,
+        "lib": [ "es2017" ],
+        "module": "commonjs",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "outDir": "./build/",
+        "strict": true,
+        "target": "es2017"
+    },
+    "include": [
+        "../src",
+        "../test"
+    ]
+}
