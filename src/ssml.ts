@@ -1,5 +1,5 @@
 export interface Attributes {
-    [name: string]: string | undefined;
+    [name: string]: string;
 }
 
 export type Content = (Rendered | string)[];
@@ -14,13 +14,15 @@ export interface Params {
     [name: string]: any;
 }
 
+export type Template = (p: Params) => string;
+
 export interface Ssml {
     render(params?: Params): Rendered | string;
 }
 
 export class Literal implements Ssml {
     public constructor(
-        public readonly text: ((p: Params) => string) | string
+        public readonly text: Template | string
     ) {}
     render(params: Params = {}) {
         return typeof this.text === "function"

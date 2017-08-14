@@ -1,5 +1,5 @@
 import * as nodes from "./nodes";
-import { Ssml, Literal, Content, Rendered, Params } from "./ssml";
+import { Ssml, Literal, Content, Rendered, Params, Template } from "./ssml";
 
 export type Inner = Container | string;
 
@@ -35,7 +35,7 @@ export class Container {
         return new Container(this.content.concat(item));
     }
 
-    public say(text: string): Container {
+    public say(text: Template | string): Container {
         return this.append(new Literal(text));
     }
 

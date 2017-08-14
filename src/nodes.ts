@@ -1,6 +1,15 @@
 import { Ssml, Literal, Attributes, Rendered, Params } from "./ssml";
 import { Container } from "./container";
 
+function toAttributes(obj: any): Attributes {
+    const entries = Object.entries(obj).filter(([, v]) => v !== undefined);
+    const ret: { [k: string]: any } = {};
+    for (const [k, v] of entries)
+        ret[k] = v;
+
+    return Object.freeze(ret);
+}
+
 export abstract class SsmlNode implements Ssml {
     public abstract readonly name: string;
     public get attributes(): Readonly<Attributes> {
@@ -69,13 +78,13 @@ export interface BreakOptions {
 export class Break extends SsmlNode {
     public readonly name = "break";
     public get attributes(): Readonly<Attributes> {
-        return {
+        return toAttributes({
             strength: this.options.strength,
             time:
                 this.options.time !== undefined
                     ? `${Math.round(this.options.time)}ms`
                     : undefined
-        } as Attributes;
+        });
     }
     public readonly options: BreakOptions;
     public constructor(options?: BreakOptions) {
@@ -88,10 +97,7 @@ export type EmphasisLevel = "strong" | "moderate" | "reduced";
 export class Emphasis extends SsmlNode {
     public readonly name = "emphasis";
     public readonly attributes: Readonly<Attributes>;
-    public constructor(
-        public readonly level: EmphasisLevel,
-        inner: Container
-    ) {
+    public constructor(public readonly level: EmphasisLevel, inner: Container) {
         super(inner);
         this.attributes = Object.freeze({ level: this.level });
     }
@@ -142,7 +148,7 @@ export class Prosody extends SsmlNode {
         inner: Container
     ) {
         super(inner);
-        this.attributes = Object.freeze(Object.assign({}, options));
+        this.attributes = toAttributes(options);
     }
 }
 

@@ -1,11 +1,13 @@
 import { Container } from "./container";
-import { Ssml, Rendered, Content } from "./ssml";
+import { Ssml, Rendered, Content, Params, Template } from "./ssml";
 import * as xmlbuilder from "xmlbuilder";
 
-export function ssml(inner?: Ssml | string) {
+export function ssml(inner?: Ssml | Template | string) {
     const ret = new Container();
     if (inner)
-        return typeof inner === "string" ? ret.say(inner) : ret.append(inner);
+        return typeof inner === "string" || typeof inner === "function"
+            ? ret.say(inner)
+            : ret.append(inner);
 
     return ret;
 }
@@ -31,10 +33,10 @@ function isRendered(ssml: Container | Rendered): ssml is Rendered {
     return (ssml as any).name === "speak";
 }
 
-export function renderXml(ssml: Container): string;
+export function renderXml(ssml: Container, params?: Params): string;
 export function renderXml(rendered: Rendered): string;
-export function renderXml(ssml: Container | Rendered): string {
-    if (!isRendered(ssml)) ssml = ssml.render();
+export function renderXml(ssml: Container | Rendered, params?: Params): string {
+    if (!isRendered(ssml)) ssml = ssml.render(params);
 
     return toXml(ssml).toString();
 }
