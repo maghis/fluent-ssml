@@ -46,7 +46,7 @@ const template = ssml()
             .sayAs("characters", "ssml")
             .say("templates can get quite complicated")
     )
-    .p(ssml().say("it's important to keep them composable and parametric"))
+    .p("it's important to keep them composable and parametric")
     .p(
         ssml()
             .say("if you do")
