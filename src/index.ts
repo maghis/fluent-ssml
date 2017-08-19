@@ -1,6 +1,6 @@
 import { Container } from "./container";
 import { Ssml, Rendered, Content, Params, Template } from "./ssml";
-import * as xmlbuilder from "xmlbuilder";
+import { toXml } from "./xml";
 
 export function ssml(inner?: Ssml | Template | string) {
     const ret = new Container();
@@ -10,23 +10,6 @@ export function ssml(inner?: Ssml | Template | string) {
             : ret.append(inner);
 
     return ret;
-}
-
-export function toXml(node: Rendered, current?: any) {
-    current = !current
-        ? xmlbuilder.create(node.name)
-        : (current = current.element(node.name, node.attributes));
-
-    if (!node.content) return current;
-
-    for (const element of node.content) {
-        current =
-            typeof element === "string"
-                ? (current = current.text(element + " "))
-                : (current = toXml(element, current).up());
-    }
-
-    return current;
 }
 
 function isRendered(ssml: Container | Rendered): ssml is Rendered {

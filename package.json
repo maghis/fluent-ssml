@@ -1,6 +1,6 @@
 {
     "name": "fluent-ssml",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Fluent Alexa SSML builder",
     "author": "maghis",
     "license": "ISC",
@@ -25,15 +25,17 @@
         "prepublishOnly": "npm run build"
     },
     "devDependencies": {
+        "@types/rewire": "2.5.28",
         "@types/xmlbuilder": "0.0.30",
-        "ava": "0.21.0",
-        "babel-register": "6.24.1",
+        "ava": "0.22.0",
+        "babel-register": "6.26.0",
         "nyc": "11.1.0",
-        "tslint": "5.5.0",
+        "rewire": "2.5.2",
+        "tslint": "5.6.0",
         "typescript": "2.4.2"
     },
     "dependencies": {
-        "xmlbuilder": "9.0.1"
+        "xmlbuilder": "9.0.4"
     },
     "nyc": {
         "include": [

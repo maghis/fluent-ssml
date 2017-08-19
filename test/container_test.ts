@@ -15,5 +15,6 @@ test("paragraph with string", t => {
     if (!rendered.content)
         throw new Error();
 
+    t.is(rendered.name, "p");
     t.is(rendered.content[0], "bar");
 });
