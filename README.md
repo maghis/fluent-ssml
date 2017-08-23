@@ -1,6 +1,6 @@
 # fluent-ssml
 
-Compose Alexa SSML (Speech Synthesis Markup Language) with a fluent interface.
+Compose Alexa SSML (*Speech Synthesis Markup Language*) with a fluent interface.
 
 Features:
 - support for the full [Alexa SSML Reference](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference)
@@ -8,8 +8,7 @@ Features:
 - simple templating
 - extensible and testable
 
-**NOTE:** this package should work both with node and the browser but it's only
-tested on node.
+**NOTE:** this package is tested on node v8.4.0
 
 ## install it
 
