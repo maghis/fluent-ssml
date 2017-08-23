@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+### Fixed
+- npm exludes built files
+
 ## [0.2.1]
 ### Fixed
 - Correct rendering of spaces between contents
