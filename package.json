@@ -9,12 +9,19 @@
         "url": "https://github.com/maghis/fluent-ssml.git"
     },
     "main": "lib/index.js",
-    "files": [
-        "lib/"
-    ],
+    "files": ["lib/"],
     "directories": {
         "test": "test"
     },
+    "keywords": [
+        "alexa",
+        "ssml",
+        "speech",
+        "skill",
+        "aws",
+        "node",
+        "typescript"
+    ],
     "scripts": {
         "clean": "rm -rf lib",
         "lint": "tslint --force --format verbose \"src/**/*.ts\"",
@@ -38,20 +45,10 @@
         "xmlbuilder": "9.0.4"
     },
     "nyc": {
-        "include": [
-            "test/**"
-        ],
-        "exclude": [
-            "test/build/test/**"
-        ],
-        "reporter": [
-            "json",
-            "text",
-            "lcovonly"
-        ],
-        "require": [
-            "babel-register"
-        ],
+        "include": ["test/**"],
+        "exclude": ["test/build/test/**"],
+        "reporter": ["json", "text", "lcovonly"],
+        "require": ["babel-register"],
         "produce-source-map": true,
         "all": true
     }
