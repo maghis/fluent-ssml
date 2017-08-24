@@ -7,6 +7,7 @@ Features:
 - everything is immutable, which makes it reusable and composable (like strings)
 - simple templating
 - extensible and testable
+- typescript types!
 
 **NOTE:** this package is tested on node v8.4.0
 
