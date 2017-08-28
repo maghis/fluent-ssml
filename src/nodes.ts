@@ -12,10 +12,7 @@ function toAttributes(obj: any): Attributes {
 
 export abstract class SsmlNode implements Ssml {
     public abstract readonly name: string;
-    public get attributes(): Readonly<Attributes> {
-        return {};
-    }
-
+    public attributes: Readonly<Attributes> = {};
     public constructor(public readonly inner?: Container) {}
 
     render(params?: Params): Rendered {
