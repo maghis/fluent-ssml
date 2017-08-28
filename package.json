@@ -8,7 +8,9 @@
         "type": "git",
         "url": "https://github.com/maghis/fluent-ssml.git"
     },
-    "main": "lib/index.js",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "typings": "./lib/index.d.ts",
     "files": ["lib/"],
     "directories": {
         "test": "test"
