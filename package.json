@@ -1,6 +1,6 @@
 {
     "name": "fluent-ssml",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "Fluent Alexa SSML builder",
     "author": "maghis",
     "license": "ISC",
@@ -11,7 +11,9 @@
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
     "typings": "./lib/index.d.ts",
-    "files": ["lib/"],
+    "files": [
+        "lib/"
+    ],
     "directories": {
         "test": "test"
     },
@@ -47,10 +49,20 @@
         "xmlbuilder": "9.0.4"
     },
     "nyc": {
-        "include": ["test/**"],
-        "exclude": ["test/build/test/**"],
-        "reporter": ["json", "text", "lcovonly"],
-        "require": ["babel-register"],
+        "include": [
+            "test/**"
+        ],
+        "exclude": [
+            "test/build/test/**"
+        ],
+        "reporter": [
+            "json",
+            "text",
+            "lcovonly"
+        ],
+        "require": [
+            "babel-register"
+        ],
         "produce-source-map": true,
         "all": true
     }
