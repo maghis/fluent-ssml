@@ -1,6 +1,6 @@
 {
     "name": "fluent-ssml",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "description": "Fluent Alexa SSML builder",
     "author": "maghis",
     "license": "ISC",
