@@ -12,13 +12,13 @@ function toAttributes(obj: any): Attributes {
 
 export abstract class SsmlNode implements Ssml {
     public abstract readonly name: string;
-    public attributes: Readonly<Attributes> = {};
+    public readonly attributes?: Readonly<Attributes>;
     public constructor(public readonly inner?: Container) {}
 
     render(params?: Params): Rendered {
         const ret: Rendered = {
             name: this.name,
-            attributes: this.attributes
+            attributes: this.attributes || {}
         };
 
         if (this.inner) ret.content = this.inner.renderInner(params);
