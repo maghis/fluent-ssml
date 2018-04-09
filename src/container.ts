@@ -60,7 +60,7 @@ export class Container {
     }
 
     public phoneme(alphabet: nodes.PhonemeAlphabet, ph: string, text?: string) {
-        this.append(new nodes.Phoneme(alphabet, ph, text));
+        return this.append(new nodes.Phoneme(alphabet, ph, text));
     }
 
     public prosody(options: nodes.ProsodyOptions, inner: Inner) {
